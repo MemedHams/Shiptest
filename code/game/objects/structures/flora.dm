@@ -52,6 +52,24 @@
 	density = FALSE
 	pixel_x = -16
 
+/obj/structure/flora/driftwood
+	name = "driftwood"
+	desc = "Floatsam, jetsam, all molded down in the unforgiving sea."
+	icon = 'icons/obj/flora/grass-sticks.dmi'
+	icon_state = "stick"
+	density = FALSE
+
+/obj/structure/flora/driftwood/Initialize()
+	. = ..()
+	icon_state = "[icon_state][rand(1, 4)]"
+
+/obj/structure/flora/driftlog
+	name = "driftwood log"
+	desc = "Better log this one in the database."
+	icon = 'icons/obj/flora/grass-sticks.dmi'
+	icon_state = "dry_log"
+	density = FALSE
+
 /obj/structure/flora/tree/pine
 	name = "pine tree"
 	desc = "A coniferous pine tree."
@@ -856,14 +874,14 @@
 	icon_state = "[base_icon_state]_[rand(1,3)]"
 
 /obj/structure/flora/tree/dead/tall/grey
-	name = "ashen tree"
-	desc = "A tree carbonized by the heat of the planet."
+	name = "petrified trunk"
+	desc = "A mishappen pillar of mineralized wood, carrying the lingering pattern of some long-dead forest."
 	icon = 'icons/obj/flora/tall_trees_dead.dmi'
 
 
 /obj/structure/flora/tree/cactus
-	name = "saguaro cactus"
-	desc = "A cacti species originating from the Sol system. Initially set up on Mars to help with terraforming, it can now be found on pretty much every planet with a similar enviroment, for one reason or another."
+	name = "maguaro cactus"
+	desc = "A hardy species of modified Saguaro cacti, originating from the Sol system. Initially planted on a partially-terraformed Mars to help prevent soil erosion, it can now be found on frigid tundras across known space."
 	icon = 'icons/obj/flora/bigtrees.dmi'
 	icon_state = "cactus"
 	density = TRUE
@@ -885,8 +903,8 @@
 	icon = 'icons/obj/flora/rocks.dmi'
 
 /obj/structure/flora/tree/dead/barren
-	name = "barren tree"
-	desc = "A tree turned purple from mutations to adapt to its environment. It seems to have done a great job!"
+	name = "petrified tree"
+	desc = "An ancient trunk, mummified by the passage of long time. This one has retained some of the purplish hue it kept in life."
 	color = "#846996"
 	icon = 'icons/obj/flora/barren_tree.dmi'
 
@@ -894,3 +912,30 @@
 	. = ..()
 	color = pick( "#846996", "#7b4e99", "#924fab")
 	icon_state = "barren_large"
+
+/obj/structure/flora/rock/rockplanet
+	name = "russet stone"
+	icon_state = "redrock"
+	desc = "A raised knurl of red rock."
+	mineResult = /obj/item/stack/ore/glass/rockplanet
+
+/obj/structure/flora/rock/pile/rockplanet
+	name = "russet stones"
+	desc = "A pile of rust-red rocks."
+	icon_state = "redrocks"
+	mineResult = /obj/item/stack/ore/glass/rockplanet
+
+/obj/structure/flora/grass/rockplanet
+	name = "cottongrass"
+	desc= "A variety of cold-loving prarie grass. This variety seems to thrive the frigid rockworld enviroment, so long as water can be found nearby."
+	icon = 'icons/obj/flora/grass-sticks.dmi'
+	icon_state = "tall_grass"
+
+/obj/structure/flora/grass/rockplanet/Initialize()
+	. = ..()
+	icon_state = "[icon_state]_[rand(1, 2)]"
+
+/obj/structure/flora/grass/rockplanet/dead
+	name = "dry cottongrass"
+	desc= "This patch seems to have run dry on life-giving water."
+	icon_state = "dry_grass"

@@ -7,13 +7,16 @@
 							/turf/closed/wall/rust = 10,)
 
 	mob_spawn_chance = 2
-	flora_spawn_chance = 5
+	flora_spawn_chance = 12
 
 	mob_spawn_list = list(
+		//cytomobs, dangerous but simple(for now)
+		/mob/living/simple_animal/hostile/asteroid/vatbeast = 25,
+		/mob/living/simple_animal/hostile/asteroid/ooze/gelatinous = 35,
 		//hivebots, not too difficult
-		/mob/living/simple_animal/hostile/hivebot/strong/rockplanet = 70,
-		/mob/living/simple_animal/hostile/hivebot/range/rockplanet = 40,
-		/mob/living/simple_animal/hostile/hivebot/rapid/rockplanet = 30,
+		/mob/living/simple_animal/hostile/hivebot/strong/rockplanet = 30,
+		/mob/living/simple_animal/hostile/hivebot/range/rockplanet = 20,
+		/mob/living/simple_animal/hostile/hivebot/rapid/rockplanet = 15,
 		//crystal mobs, very difficult
 		/mob/living/simple_animal/hostile/asteroid/goliath/beast/ancient/crystal = 1,
 		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/forgotten = 1,
@@ -25,6 +28,9 @@
 		/mob/living/simple_animal/bot/floorbot/rockplanet = 15)
 
 	flora_spawn_list = list(
+		/obj/structure/flora/ash/garden/waste = 10,
+		/obj/structure/flora/ash/glowshroom = 110,
+
 		/obj/structure/mecha_wreckage/ripley = 15,
 		/obj/structure/mecha_wreckage/ripley/firefighter = 9,
 		/obj/structure/mecha_wreckage/ripley/mkii = 9,

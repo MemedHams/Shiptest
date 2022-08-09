@@ -1049,3 +1049,33 @@
 
 /datum/reagent/toxin/lava_microbe/expose_mob(mob/living/M, method=TOUCH, reac_volume,show_message = 1)
 	M.ForceContractDisease(new /datum/disease/advance/random(2, 3), FALSE, TRUE)
+
+/datum/reagent/toxin/virogoo
+	name = "Retroviral Froth"
+	description = "A medium of varied microbes, suspended in an irradiated agar-like slime."
+	taste_description = "slimy yeast"
+	taste_mult = 5
+	color = "#9ad16f"
+	toxpwr = 1
+
+/datum/reagent/virogoo/on_mob_life(mob/living/carbon/M)
+	M.apply_effect(1*REM/M.metabolism_efficiency,EFFECT_IRRADIATE,0)
+	..()
+
+
+//will this be used for ghetto viro? Probably. Don't eat uncooked trash slime, kids.
+/datum/reagent/toxin/virogoo/expose_mob(mob/living/M, method=TOUCH || INJECT || INGEST, reac_volume, show_message = 1)
+	if(prob(25))
+		M.ForceContractDisease(new /datum/disease/advance/random(4, 8), FALSE, TRUE)//you REALLY fucked up.
+	else
+		M.ForceContractDisease(new /datum/disease/advance/random(2, 3), FALSE, TRUE)//you fucked up.
+
+/datum/reagent/toxin/virogoo/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray, mob/user)//world's shittiest mutagen
+	. = ..()
+	if(chems.has_reagent(type, 1))
+		mytray.mutation_roll(user)
+		mytray.adjustHealth(-round(chems.get_reagent_amount(type)))
+		mytray.adjustToxic(round(chems.get_reagent_amount(type)))
+		mytray.adjustWeeds(rand(-2,-5))//weeds get sick too
+		mytray.adjustPests(rand(2,5))
+		myseed.adjust_instability(1)

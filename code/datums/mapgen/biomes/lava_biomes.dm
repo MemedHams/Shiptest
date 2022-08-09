@@ -113,11 +113,15 @@
 	closed_turf_types = list(/turf/closed/mineral/random/volcanic = 1)
 	mob_spawn_chance = 4
 	mob_spawn_list = list(
+		/mob/living/simple_animal/hostile/asteroid/goliath/beast/ancient/crystal = 1,
+		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/forgotten = 1,
+		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/crystal = 1,
 		/mob/living/simple_animal/hostile/asteroid/goliath/beast/random = 50,
 		/obj/structure/spawner/lavaland/goliath = 3,
 		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/random = 40,
 		/obj/structure/spawner/lavaland = 3,
 		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/random = 30,
+		/mob/living/simple_animal/hostile/asteroid/brimdemon = 20,
 		/obj/structure/spawner/lavaland/legion = 3,
 		/mob/living/simple_animal/hostile/asteroid/goldgrub = 10
 	)

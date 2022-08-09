@@ -53,7 +53,7 @@
 
 /mob/living/simple_animal/hostile/asteroid/whitesands/survivor
 	name = "Hermit Wanderer"
-	desc =" A wild-eyed figure, wearing tattered mining equipment and boasting a malformed body, twisted by the heavy metals and high background radiation of the sandworlds."
+	desc =" A wild-eyed figure, wearing tattered mining equipment and boasting a malformed body, twisted by the heavy metals and high background radiation of the frontier worlds."
 
 /mob/living/simple_animal/hostile/asteroid/whitesands/survivor/random/Initialize()
 	. = ..()

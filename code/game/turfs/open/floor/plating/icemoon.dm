@@ -97,6 +97,8 @@
 	initial_gas_mix = WHITESANDS_ATMOS
 
 /turf/open/floor/plating/asteroid/snow/lit/rockplanet
+	name = "glacial slush"
+	desc = "Water flows up from deep underground, freezing as it touches the chill surface air."
 	baseturfs = /turf/open/floor/plating/asteroid/rockplanet/lit
 	initial_gas_mix = ROCKPLANET_DEFAULT_ATMOS
 
@@ -183,7 +185,6 @@
 /turf/open/floor/plating/asteroid/iceberg/lit
 	light_range = 2
 	light_power = 1
-
 
 /turf/open/floor/plating/asteroid/snow/icemoon
 	baseturfs = /turf/open/openspace/icemoon

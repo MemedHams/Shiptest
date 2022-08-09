@@ -88,6 +88,34 @@ GLOBAL_LIST_INIT(ore_probability, list(
 			var/turf/closed/mineral/M = F
 			M.ScrapeAway(null, CHANGETURF_IGNORE_AIR)
 
+/obj/structure/spawner/ice_moon/rockplanet
+	name = "gruboid den"
+	desc = "Though gruboid are typically nomadic creatures, they gather in small surface caves to reproduce. They're unlikely to be happy about being disturbed."
+	max_mobs = 3
+	spawn_time = 60 SECONDS
+	mob_types = list(/mob/living/simple_animal/hostile/asteroid/goliath/beast/rockplanet, /mob/living/simple_animal/hostile/asteroid/elite/broodmother_child/rockplanet)
+
+/obj/structure/spawner/ice_moon/rockplanet/clear_rock()
+	for(var/turf/F in RANGE_TURFS(1, src))
+		if(ismineralturf(F))
+			var/turf/closed/mineral/M = F
+			M.ScrapeAway(null, CHANGETURF_IGNORE_AIR)
+
+/obj/structure/spawner/ice_moon/lobstrosity
+	name = "lobster nest"
+	desc = "Packs of female lobstrosity compete aggressively for territory and mates. These nests are the thrones from which they rule their lands with an iron claw."
+	max_mobs = 4
+	spawn_time = 60 SECONDS
+	mob_types = list(/mob/living/simple_animal/hostile/asteroid/lobstrosity)
+
+/obj/structure/spawner/ice_moon/lobstrosity/clear_rock()
+	for(var/turf/F in RANGE_TURFS(1, src))
+		if(ismineralturf(F))
+			var/turf/closed/mineral/M = F
+			M.ScrapeAway(null, CHANGETURF_IGNORE_AIR)
+
+/obj/structure/spawner/ice_moon/lobstrosity/beach
+	mob_types = list(/mob/living/simple_animal/hostile/asteroid/lobstrosity/beach)
 /obj/structure/spawner/ice_moon/demonic_portal
 	name = "demonic portal"
 	desc = "A portal that goes to another world, normal creatures couldn't survive there. When it collapses, who knows where it will go?"
@@ -120,6 +148,9 @@ GLOBAL_LIST_INIT(ore_probability, list(
 
 /obj/structure/spawner/ice_moon/demonic_portal/snowlegion
 	mob_types = list(/mob/living/simple_animal/hostile/asteroid/hivelord/legion/snow/tendril)
+
+/obj/structure/spawner/ice_moon/demonic_portal/brimdemon
+	mob_types = list(/mob/living/simple_animal/hostile/asteroid/brimdemon)
 
 /obj/effect/collapsing_demonic_portal
 	name = "collapsing demonic portal"

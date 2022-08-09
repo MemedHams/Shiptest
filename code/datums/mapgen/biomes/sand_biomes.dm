@@ -2,9 +2,10 @@
 	open_turf_types = list(/turf/open/floor/plating/asteroid/whitesands/lit = 1)
 	flora_spawn_chance = 3
 	flora_spawn_list = list(
-		/obj/structure/flora/ash/leaf_shroom = 4 ,
-		/obj/structure/flora/ash/cap_shroom = 4 ,
-		/obj/structure/flora/ash/stem_shroom = 4 ,
+		/obj/structure/flora/ash/leaf_shroom = 8 ,
+		/obj/structure/flora/ash/cap_shroom = 8 ,
+		/obj/structure/flora/ash/stem_shroom = 8 ,
+		/obj/structure/flora/ash/garden/arid = 1,
 	)
 	feature_spawn_chance = 0.1
 	feature_spawn_list = list(/obj/structure/geyser/random = 1, /obj/structure/elite_tumor = 2)
@@ -34,6 +35,7 @@
 		/obj/structure/flora/ash/whitesands/fern = 4,
 		/obj/structure/sink/puddle = 2,
 		/obj/structure/flora/tree/palm = 4,
+		/obj/structure/flora/ash/garden/arid = 1,
 	)
 	feature_spawn_list = list(/obj/structure/geyser/random = 1)
 

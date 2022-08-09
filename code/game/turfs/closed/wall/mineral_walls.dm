@@ -368,3 +368,4 @@
 /turf/closed/wall/mineral/plastitanium/copyTurf(turf/T)
 	. = ..()
 	T.transform = transform
+	

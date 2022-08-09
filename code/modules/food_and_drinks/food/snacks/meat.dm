@@ -325,6 +325,28 @@
 	tastes = list("crab" = 1)
 	foodtype = MEAT
 
+/obj/item/reagent_containers/food/snacks/meat/molluscraw
+	name = "raw mollusc"
+	desc = "Eating this might be a bad idea."
+	icon_state = "molluscraw"
+	cooked_type = /obj/item/reagent_containers/food/snacks/meat/mollusc
+	bitesize = 3
+	list_reagents = list(/datum/reagent/consumable/nutriment = 10, /datum/reagent/consumable/cooking_oil = 1, /datum/reagent/radium = 2, /datum/reagent/lithium = 2)
+	filling_color = "#706a5a"
+	tastes = list("slimy protein" = 1, "metallic aftertaste" = 5)
+	foodtype = RAW | MEAT | GROSS
+
+/obj/item/reagent_containers/food/snacks/meat/mollusc
+	name = "fried mollusc"
+	desc = "Maybe you cooked it all off?."
+	icon_state = "crabmeat"
+	cooked_type = /obj/item/reagent_containers/food/snacks/meat/mollusc
+	bitesize = 3
+	list_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/consumable/cooking_oil = 3, /datum/reagent/radium = 1)
+	filling_color = "#706a5a"
+	tastes = list("oysters" = 1, "acrid chemistry" = 1)
+	foodtype = MEAT
+
 /obj/item/reagent_containers/food/snacks/meat/slab/chicken
 	name = "chicken meat"
 	icon_state = "birdmeat"
@@ -530,3 +552,23 @@
 /obj/item/reagent_containers/food/snacks/meat/cutlet/chicken
 	name = "chicken cutlet"
 	tastes = list("chicken" = 1)
+
+/obj/item/reagent_containers/food/snacks/meat/cube
+	name = "diced slime"
+	desc = "A strip of jello-like slime, cut from some sort of slimy creature. Definitely doesn't taste like jello."
+	icon_state = "slimestrip"
+	cooked_type = /obj/item/reagent_containers/food/snacks/meat/cubecooked
+	bitesize = 5
+	list_reagents = list(/datum/reagent/liquidgibs = 1, /datum/reagent/fuel/oil = 2, /datum/reagent/consumable/sodiumchloride = 2, /datum/reagent/water = 5, /datum/reagent/toxin/virogoo = 10)
+	filling_color = "#8ded26"
+	tastes = list("rotting salt" = 1, "oily yeast" = 1)
+	foodtype = RAW | GROSS
+
+/obj/item/reagent_containers/food/snacks/meat/cubecooked
+	name = "broiled slime"
+	desc = "Finally, it's, um... edible. Yum."
+	filling_color = "#72c21e"
+	bitesize = 5
+	tastes = list("refried garbage" = 1, "annihilated pathogens" = 1)
+	list_reagents = list(/datum/reagent/liquidgibs = 1, /datum/reagent/consumable/cooking_oil = 2, /datum/reagent/consumable/sodiumchloride = 2, /datum/reagent/water = 2, /datum/reagent/consumable/nutriment/vitamin = 3, /datum/reagent/consumable/nutriment = 7)//full of fried microbes!
+	foodtype = JUNKFOOD | MEAT | GROSS

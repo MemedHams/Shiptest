@@ -4,7 +4,7 @@
 		"coldest" = list(
 			"biome_lowest_humidity" = /datum/biome/rock,
 			"biome_low_humidity" = /datum/biome/rock,
-			"biome_medium_humidity" = /datum/biome/rock,
+			"biome_medium_humidity" = /datum/biome/rock/icecap,
 			"biome_high_humidity" = /datum/biome/rock/icecap,
 			"biome_highest_humidity" = /datum/biome/rock/icecap
 		),
@@ -12,7 +12,7 @@
 			"biome_lowest_humidity" = /datum/biome/rock,
 			"biome_low_humidity" = /datum/biome/rock,
 			"biome_medium_humidity" = /datum/biome/rock,
-			"biome_high_humidity" = /datum/biome/rock,
+			"biome_high_humidity" = /datum/biome/rock/wetlands,
 			"biome_highest_humidity" = /datum/biome/rock/icecap
 		),
 		"warm" = list(
@@ -25,7 +25,7 @@
 		"perfect" = list(
 			"biome_lowest_humidity" = /datum/biome/rock,
 			"biome_low_humidity" = /datum/biome/rock,
-			"biome_medium_humidity" = /datum/biome/rock,
+			"biome_medium_humidity" = /datum/biome/rock/wetlands,
 			"biome_high_humidity" = /datum/biome/rock/wetlands,
 			"biome_highest_humidity" = /datum/biome/rock/wetlands
 		),

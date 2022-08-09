@@ -1,5 +1,6 @@
 /turf/open/floor/plating/asteroid/rockplanet
-	name = "iron sand"
+	name = "oxide sand"
+	desc = "The sway of wind and water rent hematite rock into reddish dust. Now it crunches softly underfoot."
 	icon_state = "dry_soft"
 	base_icon_state = "dry_soft"
 	floor_variance = 100
@@ -16,7 +17,8 @@
 	light_color = COLOR_VERY_LIGHT_GRAY
 
 /turf/open/floor/plating/asteroid/rockplanet/cracked
-	name = "iron cracked sand"
+	name = "dried oxide sand"
+	desc = "Sand grows brittle and tough under the withering glare of the midday sun."
 	icon_state = "dry_cracked0"
 	base_icon_state = "dry_cracked"
 	baseturfs = /turf/open/floor/plating/asteroid/rockplanet
@@ -38,7 +40,8 @@
 	light_power = 0.6
 
 /turf/open/floor/plating/asteroid/rockplanet/wet/cracked
-	name = "iron cracked sand"
+	name = "muddy oxide sand"
+	desc = "Red earth grows damp and sticky underfoot, loostening back into soil."
 	icon_state = "wet_cracked0"
 	base_icon_state = "wet_cracked"
 
