@@ -33,3 +33,15 @@
 
 /datum/movespeed_modifier/reagent/nuka_cola
 	multiplicative_slowdown = -0.35
+
+/datum/movespeed_modifier/reagent/belladine
+	multiplicative_slowdown = 1.5
+
+/datum/movespeed_modifier/reagent/pyre
+	multiplicative_slowdown = -0.45
+
+/datum/movespeed_modifier/reagent/fumerol//like a bat out of hell
+	multiplicative_slowdown = -0.85
+
+/datum/movespeed_modifier/chronos//accelerates time, and should thus function for all movement types
+	multiplicative_slowdown = -0.50

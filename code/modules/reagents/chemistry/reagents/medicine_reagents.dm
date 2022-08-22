@@ -1054,6 +1054,63 @@
 	..()
 	. = 1
 
+//"herbal" chems that provide subtle but useful healing effects with mild overdose effects. Used as ingredients in more effective healing aids.
+//Herbal chems have OD effects distinct from their base effect, and do not stop functioning when overdosing.
+/datum/reagent/medicine/geranidine
+	name = "Geranidine"
+	description = "A chemical mixture commonly extracted from Geranium flowers. Acts as a mild astringent, slowing and helping to halt bleeding. Mildly toxic in larger quantities."
+	reagent_state = LIQUID
+	color = "#589adc"
+	overdose_threshold = 15
+
+/datum/reagent/medicine/geranidine/on_mob_life(mob/living/carbon/M)
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		H.bleed_rate = max(H.bleed_rate - 0.05, 0)
+	..()
+	. = 1
+
+/datum/reagent/medicine/geranidine/overdose_process(mob/living/M)
+	M.adjustToxLoss(1*REM, FALSE, FALSE, BODYPART_ORGANIC)
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		H.bleed_rate = max(H.bleed_rate - 0.05, 0)
+	..()
+	. = 1
+
+/datum/reagent/medicine/belladine
+	name = "Belladine"
+	description = "A weak medicinal compound harvested from Harebell flowers, used to treat mild heart and lung problems. Causes muscle weakness in high quantities."
+	color = "#ca7cd0"
+	overdose_threshold = 15
+	metabolization_rate = 0.8 * REAGENTS_METABOLISM
+	var/overdosing = FALSE
+
+/datum/reagent/medicine/belladine/on_mob_life(mob/living/carbon/human/M)
+	M.adjustOrganLoss(ORGAN_SLOT_HEART, -0.5)
+	M.adjustOrganLoss(ORGAN_SLOT_LUNGS, -0.5)
+	..()
+	return TRUE
+
+/datum/reagent/medicine/belladine/on_mob_end_metabolize(mob/living/M)
+	if(overdosing == TRUE)
+		M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/belladine)
+	..()
+
+/datum/reagent/medicine/belladine/overdose_process(mob/living/M)
+	var/over_message = pick("You feel druggy and listless.", "You feel burnt out.", "You feel loose and slow.")
+	if(prob(5))
+		to_chat(M, "<span class='notice'>[over_message]</span>")
+	if(prob(10))
+		M.adjustStaminaLoss(75)
+		to_chat(M, "<span class='warning'>You feel a wave of exhaustion!</span>")
+	M.adjustOrganLoss(ORGAN_SLOT_HEART, -0.5)
+	M.adjustOrganLoss(ORGAN_SLOT_LUNGS, -0.5)
+	M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/belladine)
+	overdosing = TRUE
+	..()
+	return TRUE
+
 /datum/reagent/medicine/dexalin
 	name = "Dexalin"
 	description = "Restores oxygen loss. Overdose causes it instead."
@@ -1236,7 +1293,7 @@
 
 /datum/reagent/medicine/earthsblood //Created by ambrosia gaia plants
 	name = "Earthsblood"
-	description = "Ichor from an extremely powerful plant. Great for restoring wounds, but it's a little heavy on the brain. For some strange reason, it also induces temporary pacifism in those who imbibe it and semi-permanent pacifism in those who overdose on it."
+	description = "Ichor from an extremely powerful plant. Great for restoring wounds, but it's a little heavy on the brain. Induces semi-permanent pacifism in those who overdose on it."
 	color = "#FFAF00"
 	metabolization_rate = 0.4 //Math is based on specific metab rate so we want this to be static AKA if define or medicine metab rate changes, we want this to stay until we can rework calculations.
 	overdose_threshold = 25
@@ -1259,19 +1316,11 @@
 		M.adjustStaminaLoss(-3 * REM, 0)
 		M.jitteriness = min(max(0, M.jitteriness + 3), 30)
 		M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 2 * REM, 150)
-		if(prob(10))
+		if(prob(5))
 			M.say(pick("Yeah, well, you know, that's just, like, uh, your opinion, man.", "Am I glad he's frozen in there and that we're out here, and that he's the sheriff and that we're frozen out here, and that we're in there, and I just remembered, we're out here. What I wanna know is: Where's the caveman?", "It ain't me, it ain't me...", "Make love, not war!", "Stop, hey, what's that sound? Everybody look what's going down...", "Do you believe in magic in a young girl's heart?"), forced = /datum/reagent/medicine/earthsblood)
 	M.druggy = min(max(0, M.druggy + 10), 15) //See above
 	..()
 	. = 1
-
-/datum/reagent/medicine/earthsblood/on_mob_metabolize(mob/living/L)
-	..()
-	ADD_TRAIT(L, TRAIT_PACIFISM, type)
-
-/datum/reagent/medicine/earthsblood/on_mob_end_metabolize(mob/living/L)
-	REMOVE_TRAIT(L, TRAIT_PACIFISM, type)
-	..()
 
 /datum/reagent/medicine/earthsblood/overdose_process(mob/living/M)
 	M.hallucination = min(max(0, M.hallucination + 5), 60)

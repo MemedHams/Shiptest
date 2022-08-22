@@ -101,3 +101,57 @@
 	reagents.clear_reagents()
 	reagents.add_reagent(/datum/reagent/toxin/bungotoxin, seed.potency * 0.10) //More than this will kill at too low potency
 	reagents.add_reagent(/datum/reagent/consumable/nutriment, seed.potency * 0.04)
+
+//Korta Nut
+/obj/item/seeds/korta_nut
+	name = "pack of korta seeds"
+	desc = "These seeds grow into Korta, a nut-bearing bush originating from the homeworld of the Sarathi species."
+	icon_state = "seed-korta"
+	species = "kortanut"
+	plantname = "Korta Bush"
+	product = /obj/item/food/grown/korta_nut
+	lifespan = 55
+	endurance = 35
+	yield = 5
+	growing_icon = 'icons/obj/hydroponics/growing_fruits.dmi'
+	icon_grow = "kortanut-grow"
+	icon_dead = "kortanut-dead"
+	genes = list(/datum/plant_gene/trait/repeated_harvest, /datum/plant_gene/trait/one_bite)
+	mutatelist = list(/obj/item/seeds/korta_nut/sweet)
+	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+
+/obj/item/food/grown/korta_nut
+	seed = /obj/item/seeds/korta_nut
+	name = "korta nut"
+	desc = "A little nut of great importance, responsible for feeding much of the known galaxy. Has a peppery shell which can be ground into flour and a soft, pulpy interior that produces a milky fluid when juiced. Or you can eat them whole, as a quick snack."
+	icon_state = "korta_nut"
+	foodtypes = MEAT
+	grind_results = list(/datum/reagent/consumable/korta_flour = 0)
+	juice_results = list(/datum/reagent/consumable/korta_milk = 0)
+	tastes = list("peppery heat" = 1)
+	distill_reagent = /datum/reagent/consumable/ethanol/kortara
+
+//Sweet Korta Nut
+/obj/item/seeds/korta_nut/sweet
+	name = "pack of sweet korta seeds"
+	desc = "These seeds grow into sweet korta nuts, a common variety of the original species that produces a thick syrup used as a sweetener in traditional Sarathi desserts."
+	icon_state = "seed-sweetkorta"
+	species = "kortanut"
+	plantname = "Sweet Korta Bush"
+	product = /obj/item/food/grown/korta_nut/sweet
+	maturation = 10
+	production = 10
+	mutatelist = null
+	reagents_add = list(/datum/reagent/consumable/korta_nectar = 0.1, /datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	rarity = 20
+
+/obj/item/food/grown/korta_nut/sweet
+	seed = /obj/item/seeds/korta_nut/sweet
+	name = "sweet korta nut"
+	desc = "A sweet and spicy treat filled with thick, syrupy nectar. The favorite snack of Sarathi everywhere."
+	icon_state = "korta_nut"
+	foodtypes = MEAT | SUGAR
+	grind_results = list(/datum/reagent/consumable/korta_flour = 0)
+	juice_results = list(/datum/reagent/consumable/korta_milk = 0, /datum/reagent/consumable/korta_nectar = 0)
+	tastes = list("peppery sweet" = 1)
+	distill_reagent = /datum/reagent/consumable/ethanol/surtara

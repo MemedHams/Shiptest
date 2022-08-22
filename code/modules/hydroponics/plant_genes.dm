@@ -496,3 +496,49 @@
 
 /datum/plant_gene/trait/plant_type/carnivory
 	name = "Obligate Carnivory"
+
+//Plant gene for tiny seeds and berries, allowing them to be eaten in a single bit.
+/datum/plant_gene/trait/one_bite
+	name = "Bite-Sized"
+
+/datum/plant_gene/trait/one_bite/on_new_plant(obj/item/our_plant, newloc)
+	. = ..()
+	if(!.)
+		return
+
+	var/obj/item/food/grown/grown_plant = our_plant
+	if(istype(grown_plant))
+		grown_plant.bite_consumption_mod = 100
+
+/datum/plant_gene/trait/modified_volume
+	name = "Deep Vesicles"
+	/// The new number we set the plant's max_volume to.
+	var/new_capacity = 100
+	// Adjusts the plants final yield by this number additively, used by subtypes ///CURRENTLY WIP///
+	var/bonus_yield = 0
+
+/datum/plant_gene/trait/modified_volume/on_new_plant(obj/item/our_plant, newloc)
+	. = ..()
+	if(!.)
+		return
+
+	var/obj/item/food/grown/grown_plant = our_plant
+	if(istype(grown_plant))
+		grown_plant.max_volume = new_capacity
+		grown_plant.yield = grown_plant.yield + bonus_yield
+
+/// Omegaweed's funny 420 max volume gene
+/datum/plant_gene/trait/modified_volume/omega_weed
+	name = "Omega Vesicles"
+	new_capacity = 420
+
+/// Cherry Bomb's increased max volume gene
+/datum/plant_gene/trait/modified_volume/cherry_bomb
+	name = "Powder-Filled Bulbs"
+	new_capacity = 125
+
+//a trait for berries and nuts that increases yield while decreasing plant volume
+/datum/plant_gene/trait/modified_volume/nutberry
+	name = "Distributed Contents"
+	new_capacity = 75
+	bonus_yield = 10

@@ -37,3 +37,15 @@
 /datum/chemical_reaction/pumpup
 	results = list(/datum/reagent/drug/pumpup = 5)
 	required_reagents = list(/datum/reagent/medicine/epinephrine = 2, /datum/reagent/consumable/coffee = 5)
+
+/datum/chemical_reaction/fumerol
+	results = list(/datum/reagent/consumable/fumerol = 2)
+	required_reagents = list(/datum/reagent/consumable/pyre_elementum = 1, /datum/reagent/drug/methamphetamine = 1)
+	required_catalysts = list(/datum/reagent/stabilizing_agent = 1)
+	mix_message = "The mixture bursts into flame before suddenly going out, leaving behind a soupy fluid with an evil red glow."
+
+/datum/chemical_reaction/fumerol/on_reaction(datum/reagents/holder, created_volume)
+	var/turf/T = get_turf(holder.my_atom)
+	for(var/turf/turf in range(0,T))
+		new /obj/effect/hotspot(turf)
+	holder.chem_temp = 3000//ludicrous

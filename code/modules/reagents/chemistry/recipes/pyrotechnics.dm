@@ -237,6 +237,12 @@ WS End*/
 	modifier = 1
 	mob_react = FALSE
 
+/datum/chemical_reaction/reagent_explosion/pyremeth
+	required_reagents = list(/datum/reagent/drug/methamphetamine = 1, /datum/reagent/consumable/pyre_elementum = 1)
+	strengthdiv = 4
+	modifier = 1
+	mob_react = FALSE
+
 /datum/chemical_reaction/reagent_explosion/methsplosion/on_reaction(datum/reagents/holder, created_volume)
 	var/turf/T = get_turf(holder.my_atom)
 	for(var/turf/turf in range(1,T))

@@ -892,6 +892,25 @@
 	. = TRUE
 	..()
 
+/datum/reagent/toxin/acid/formic
+	name = "Formic acid"
+	description = "An organic compound with powerful acidic properties, found commonly in the stingers of insects or in the corrosive spikes of nettles. Used in industrial tanning to rapidly transform skins into leather. Can be denatured under high heat."
+	color = "#c3e07f"
+	toxpwr = 2
+	acidpwr = 5
+
+/datum/reagent/toxin/acid/formic/expose_obj(obj/O, reac_volume)
+	if(istype(O, /obj/item/stack/sheet/animalhide))
+		var/obj/item/stack/sheet/animalhide/M = O
+		reac_volume = min(reac_volume, M.amount)
+		new/obj/item/stack/sheet/leather(get_turf(M), reac_volume)
+		M.use(reac_volume)
+	if(istype(O, /obj/item/stack/sheet/hairlesshide))
+		var/obj/item/stack/sheet/hairlesshide/L = O
+		reac_volume = min(reac_volume, L.amount)
+		new/obj/item/stack/sheet/leather(get_turf(L), reac_volume)
+		L.use(reac_volume)
+
 /datum/reagent/toxin/delayed
 	name = "Toxin Microcapsules"
 	description = "Causes heavy toxin damage after a brief time of inactivity."

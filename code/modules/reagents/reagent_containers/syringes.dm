@@ -303,3 +303,9 @@
 
 /obj/item/reagent_containers/syringe/contraband/morphine
 	list_reagents = list(/datum/reagent/medicine/morphine = 15)
+
+/obj/item/reagent_containers/syringe/contraband/pyre
+	list_reagents = list(/datum/reagent/consumable/pyre_elementum = 15)
+
+/obj/item/reagent_containers/syringe/contraband/fumerol
+	list_reagents = list(/datum/reagent/consumable/fumerol = 15)
