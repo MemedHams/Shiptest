@@ -41,6 +41,7 @@
 	genes = list()
 	mutatelist = list()
 	research = PLANT_RESEARCH_TIER_2
+	reagents_add = list(/datum/reagent/toxin/formaldehyde = 0.1)
 
 //Galaxy Thistle
 /obj/item/seeds/galaxythistle

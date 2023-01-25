@@ -20,7 +20,7 @@
 /obj/item/reagent_containers/food/snacks/grown/berries
 	seed = /obj/item/seeds/berry
 	name = "bunch of berries"
-	desc = "Nutritious!"
+	desc = "Nutritious?"
 	icon_state = "berrypile"
 	gender = PLURAL
 	filling_color = "#FF00FF"
