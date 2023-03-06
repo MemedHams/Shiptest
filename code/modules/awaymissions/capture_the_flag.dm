@@ -336,7 +336,7 @@
 
 /obj/machinery/capture_the_flag/proc/reset_the_arena()
 	var/area/A = get_area(src)
-	var/list/ctf_object_typecache = typecacheof(list(
+	var/static/list/ctf_object_typecache = typecacheof(list(
 				/obj/machinery,
 				/obj/effect/ctf,
 				/obj/item/ctf

@@ -16,14 +16,14 @@
 	var/static/list/allowed_areas
 	if(!allowed_areas)
 		//Places that shouldn't explode
-		var/list/safe_area_types = typecacheof(list(
+		var/static/list/safe_area_types = typecacheof(list(
 		/area/ship/science/ai_chamber,
 		/area/ship/engineering,
 		/area/ship/maintenance)
 		)
 
 		//Subtypes from the above that actually should explode.
-		var/list/unsafe_area_subtypes = typecacheof(list())
+		var/static/list/unsafe_area_subtypes = typecacheof(list())
 
 		allowed_areas = make_associative(typesof(/area/ship)) - safe_area_types + unsafe_area_subtypes
 	var/list/possible_areas = typecache_filter_list(GLOB.sortedAreas,allowed_areas)
